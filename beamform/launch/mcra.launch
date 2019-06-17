@@ -1,11 +1,15 @@
 <launch>
-  <node name="beamform" pkg="beamform" type="phase" output="screen">
+  <node name="beamform" pkg="beamform" type="mcra" output="screen">
     <rosparam command="load" file="$(find beamform)/rosjack_config.yaml" />
     <rosparam command="load" file="$(find beamform)/beamform_config.yaml" />
     <rosparam>
-      min_phase: 10.0
-      min_mag: 0.05
-      smooth_size: 5
+      alphaS: 0.95
+      alphaD: 0.95
+      alphaD2: 0.98
+      delta: 0.001
+      L: 50
+      out_amp: 2.5
+      out_only_noise: false
     </rosparam>
   </node>
 </launch>
