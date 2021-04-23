@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 find_package(cmake_modules REQUIRED) # for Eigen
-find_package(Eigen REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 add_message_files(FILES InterfTheta.msg)
 
@@ -20,6 +20,7 @@ catkin_package(
   CATKIN_DEPENDS roscpp rospy std_msgs jack_msgs message_runtime
 )
 
+
 INCLUDE(FindPkgConfig)
 pkg_check_modules (GLIB2 glib-2.0)
 message( "Found glib-2.0: " ${GLIB2_FOUND} )
@@ -27,7 +28,7 @@ pkg_check_modules (JACK jack)
 message( "Found jack: " ${JACK_FOUND} )
 pkg_check_modules (FFTW fftw3)
 message( "Found fftw3: " ${FFTW_FOUND} )
-pkg_check_modules (EIGEN eigen)
+pkg_check_modules (EIGEN eigen3)
 message( "Found eigen: " ${EIGEN_FOUND} )
 pkg_check_modules (SNDFILE sndfile)
 message( "Found sndfile: " ${SNDFILE_FOUND} )
